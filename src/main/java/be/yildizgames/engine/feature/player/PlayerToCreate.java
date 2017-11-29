@@ -36,14 +36,9 @@ public class PlayerToCreate {
 
     private final String login;
 
-    private final String password;
 
-    private final String email;
-
-    public PlayerToCreate(String login, String password, String email) {
+    public PlayerToCreate(String login) {
         this.login = login;
-        this.password = password;
-        this.email = email;
         assert this.invariant();
     }
 
@@ -51,25 +46,9 @@ public class PlayerToCreate {
         return login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
     private boolean invariant() {
         if(login == null || login.isEmpty()) {
             logger.error("Login cannot be null or empty.");
-            return false;
-        }
-        if(password == null || password.isEmpty()) {
-            logger.error("Password cannot be null or empty.");
-            return false;
-        }
-        if(email == null || email.isEmpty()) {
-            logger.error("Email cannot be null or empty.");
             return false;
         }
         return true;
