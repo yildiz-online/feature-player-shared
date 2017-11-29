@@ -38,17 +38,18 @@ public class PlayerToCreate {
 
 
     public PlayerToCreate(String login) {
+        super();
         this.login = login;
         assert this.invariant();
     }
 
     public String getLogin() {
-        return login;
+        return this.login;
     }
 
     private boolean invariant() {
-        if(login == null || login.isEmpty()) {
-            logger.error("Login cannot be null or empty.");
+        if(this.login == null || this.login.isEmpty()) {
+            this.logger.error("Login cannot be null or empty.");
             return false;
         }
         return true;

@@ -40,41 +40,20 @@ class PlayerToCreateTest {
 
         @Test
         void happyFlow() {
-            PlayerToCreate ptc = new PlayerToCreate("l", "p", "e");
+            PlayerToCreate ptc = new PlayerToCreate("l");
             assertEquals("l", ptc.getLogin());
-            assertEquals("p", ptc.getPassword());
-            assertEquals("e", ptc.getEmail());
+
         }
 
         @Test
         void withNullLogin() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate(null, "p", "e"));
-        }
-
-        @Test
-        void withNullPassword() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate("l", null, "e"));
-        }
-
-        @Test
-        void withNullEmail() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate("l", "p", null));
+            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate(null));
         }
 
 
         @Test
         void withEmptyLogin() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate(null, "p", "e"));
-        }
-
-        @Test
-        void withEmptyPassword() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate("l", null, "e"));
-        }
-
-        @Test
-        void withEmptyEmail() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate("l", "p", null));
+            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate(""));
         }
     }
 }
