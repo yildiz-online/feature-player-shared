@@ -24,11 +24,11 @@
 
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
-import be.yildizgames.engine.feature.player.protocol.PlayerDto;
 import be.yildizgames.common.mapping.MappingException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.PlayerIdMapper;
 import be.yildizgames.common.mapping.Separator;
+import be.yildizgames.engine.feature.player.protocol.PlayerDto;
 
 /**
  * @author Grégory Van den Borre

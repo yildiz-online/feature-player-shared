@@ -24,7 +24,7 @@
 
 package be.yildizgames.engine.feature.player.protocol;
 
-import be.yildiz.common.id.PlayerId;
+import be.yildizgames.common.model.PlayerId;
 import be.yildizgames.engine.feature.player.PlayerStatus;
 
 /**

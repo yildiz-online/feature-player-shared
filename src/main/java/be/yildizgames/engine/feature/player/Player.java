@@ -24,9 +24,9 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildiz.common.collections.Sets;
-import be.yildiz.common.id.EntityId;
-import be.yildiz.common.id.PlayerId;
+import be.yildizgames.common.collection.Sets;
+import be.yildizgames.common.model.EntityId;
+import be.yildizgames.common.model.PlayerId;
 
 import java.util.Set;
 
