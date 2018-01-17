@@ -24,7 +24,7 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildiz.common.util.Checker;
+import be.yildizgames.common.util.Checker;
 
 /**
  * Possible status for a player.

@@ -24,9 +24,9 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildiz.common.PlayerCreationListener;
 import be.yildizgames.common.collection.Lists;
 import be.yildizgames.common.collection.Maps;
+import be.yildizgames.common.model.PlayerCreationListener;
 import be.yildizgames.common.model.PlayerId;
 
 import java.util.List;
