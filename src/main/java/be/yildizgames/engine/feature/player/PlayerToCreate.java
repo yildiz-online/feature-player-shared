@@ -24,15 +24,15 @@
 
 package be.yildizgames.engine.feature.player;
 
+import be.yildizgames.common.logging.LogFactory;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author Grégory Van den Borre
  */
 public class PlayerToCreate {
 
-    private final Logger logger = LoggerFactory.getLogger(PlayerToCreate.class);
+    private final Logger logger = LogFactory.getInstance().getLogger(PlayerToCreate.class);
 
     private final String login;
 

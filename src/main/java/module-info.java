@@ -22,16 +22,14 @@
  *
  */
 
-package be.yildizgames.engine.feature.player.protocol.mapper;
+module be.yildizgames.feature.player.shared {
 
-import be.yildizgames.engine.feature.player.PlayerStatus;
+    requires be.yildizgames.common.model;
+    requires be.yildizgames.common.logging;
+    requires be.yildizgames.common.mapping.model;
+    requires be.yildizgames.common.mapping;
 
-/**
- * @author Grégory Van den Borre
- */
-public class PlayerStatusMapperTest extends BaseMapperTest<PlayerStatus> {
+    requires slf4j.api;
 
-    public PlayerStatusMapperTest() {
-        super(PlayerStatusMapper.getInstance(), PlayerStatus.valueOf(1));
-    }
+    exports be.yildizgames.engine.feature.player;
 }

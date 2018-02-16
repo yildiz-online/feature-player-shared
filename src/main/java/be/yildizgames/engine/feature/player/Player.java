@@ -24,10 +24,10 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildizgames.common.collection.Sets;
 import be.yildizgames.common.model.EntityId;
 import be.yildizgames.common.model.PlayerId;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -85,9 +85,9 @@ public final class Player {
     /**
      * List of all allied players.
      */
-    private final Set<PlayerId> allies = Sets.newSet();
+    private final Set<PlayerId> allies = new HashSet<>();
 
-    private final Set<EntityId> see = Sets.newSet();
+    private final Set<EntityId> see = new HashSet<>();
 
     /**
      * Add an ally.

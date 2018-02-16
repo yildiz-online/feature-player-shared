@@ -24,8 +24,6 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildizgames.common.util.Checker;
-
 /**
  * Possible status for a player.
  *
@@ -70,7 +68,7 @@ public enum PlayerStatus {
      * @return The matching enumeration value.
      */
     public static PlayerStatus valueOf(final int ord) {
-        if (!Checker.inArrayRange(ord, PlayerStatus.values())) {
+        if (ord < 0 || ord >= PlayerStatus.values().length) {
             throw new IllegalArgumentException(ord + " is invalid value.");
         }
         return PlayerStatus.values()[ord];

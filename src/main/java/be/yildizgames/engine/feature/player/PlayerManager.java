@@ -24,11 +24,11 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildizgames.common.collection.Lists;
-import be.yildizgames.common.collection.Maps;
 import be.yildizgames.common.model.PlayerCreationListener;
 import be.yildizgames.common.model.PlayerId;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,13 +44,13 @@ public final class PlayerManager implements PlayerProvider {
     /**
      * List of all created player, the key is their id.
      */
-    private final Map<PlayerId, Player> playerIdList = Maps.newMap();
+    private final Map<PlayerId, Player> playerIdList = new HashMap<>();
     /**
      * List of all created player, the key is their name.
      */
-    private final Map<String, Player> playerNameList = Maps.newMap();
+    private final Map<String, Player> playerNameList = new HashMap<>();
 
-    private final List <PlayerCreationListener> playerCreationListeners = Lists.newList();
+    private final List <PlayerCreationListener> playerCreationListeners = new ArrayList<>();
 
     private PlayerManager() {
         super();
@@ -150,7 +150,7 @@ public final class PlayerManager implements PlayerProvider {
 
     @Override
     public List<Player> getPlayerList() {
-        return Lists.newList(this.playerIdList.values());
+        return new ArrayList<>(this.playerIdList.values());
     }
 
     /**
