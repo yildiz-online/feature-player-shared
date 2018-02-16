@@ -24,6 +24,7 @@
 
 package be.yildizgames.engine.feature.player;
 
+import be.yildizgames.common.exception.business.BusinessException;
 import be.yildizgames.common.model.PlayerCreationListener;
 import be.yildizgames.common.model.PlayerId;
 
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Create and manage players.
@@ -70,15 +72,19 @@ public final class PlayerManager implements PlayerProvider {
         return this.playerIdList.getOrDefault(id, Player.WORLD);
     }
 
+    public Player getFromId(final PlayerId id) {
+        return Optional.ofNullable(this.playerIdList.get(id)).orElseThrow(() -> new PlayerNotFoundException(id + " not found"));
+    }
+
     /**
      * Retrieve a player from its name.
      *
      * @param name Name of the player to retrieve.
      * @return The player matching the name.
-     * @throws IllegalArgumentException If a matching player is not found in the list.
+     * @throws PlayerNotFoundException If a matching player is not found in the list.
      */
     public Player getFromName(final String name) {
-        return this.playerNameList.get(name);
+        return Optional.ofNullable(this.playerNameList.get(name)).orElseThrow(() -> new PlayerNotFoundException(name + " not found"));
     }
 
     /**
@@ -178,7 +184,7 @@ public final class PlayerManager implements PlayerProvider {
      * @return <code>true</code> if the given relation is valid for player 1 toward player 2.
      */
     public boolean isValid(final PlayerId p1, final PlayerId p2, final PlayerRelation r) {
-        return this.getRelation(this.findFromId(p1), this.findFromId(p2)).equals(r);
+        return this.getRelation(this.getFromId(p1), this.getFromId(p2)).equals(r);
     }
 
     /**
@@ -189,7 +195,7 @@ public final class PlayerManager implements PlayerProvider {
      * @return <code>true</code> if player 1 is hostile to player 2.
      */
     public boolean isHostile(final PlayerId p1, final PlayerId p2) {
-        return this.getRelation(this.findFromId(p1), this.findFromId(p2)).equals(PlayerRelation.ENEMY);
+        return this.getRelation(this.getFromId(p1), this.getFromId(p2)).equals(PlayerRelation.ENEMY);
     }
 
     /**
@@ -246,7 +252,7 @@ public final class PlayerManager implements PlayerProvider {
      *
      * @author Van den Borre Grégory
      */
-    public static final class ExistingPlayerException extends RuntimeException {
+     static final class ExistingPlayerException extends BusinessException {
 
         /***/
         private static final long serialVersionUID = 1L;
@@ -256,7 +262,26 @@ public final class PlayerManager implements PlayerProvider {
          *
          * @param message Message to display.
          */
-        public ExistingPlayerException(final String message) {
+        ExistingPlayerException(final String message) {
+            super(message);
+        }
+
+    }
+
+    /**
+     * Exception to throw if a player cannot be found.
+     *
+     * @author Van den Borre Grégory
+     */
+    static final class PlayerNotFoundException extends BusinessException {
+
+
+        /**
+         * Create a new exception.
+         *
+         * @param message Message to display.
+         */
+        PlayerNotFoundException(final String message) {
             super(message);
         }
 
