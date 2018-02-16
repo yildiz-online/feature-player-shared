@@ -24,24 +24,14 @@
 
 package be.yildizgames.engine.feature.player;
 
+import be.yildizgames.common.exception.business.BusinessException;
+
 /**
  * @author Grégory Van den Borre
  */
-public class PlayerToCreate {
+class PlayerCreationException extends BusinessException {
 
-
-    private final String login;
-
-    public PlayerToCreate(String login) {
-        super();
-        if(login == null || login.isEmpty()) {
-            throw new PlayerCreationException("Login cannot be empty");
-        }
-        this.login = login;
+    PlayerCreationException(String message) {
+        super(message);
     }
-
-    public String getLogin() {
-        return this.login;
-    }
-
 }

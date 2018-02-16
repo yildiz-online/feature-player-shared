@@ -47,13 +47,13 @@ class PlayerToCreateTest {
 
         @Test
         void withNullLogin() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate(null));
+            Assertions.assertThrows(PlayerCreationException.class, () -> new PlayerToCreate(null));
         }
 
 
         @Test
         void withEmptyLogin() {
-            Assertions.assertThrows(AssertionError.class, () -> new PlayerToCreate(""));
+            Assertions.assertThrows(PlayerCreationException.class, () -> new PlayerToCreate(""));
         }
     }
 }
