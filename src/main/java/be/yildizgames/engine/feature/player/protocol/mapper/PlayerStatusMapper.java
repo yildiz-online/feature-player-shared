@@ -24,10 +24,11 @@
 
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.IntegerMapper;
-import be.yildizgames.common.mapping.MappingException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.engine.feature.player.PlayerStatus;
+import be.yildizgames.engine.feature.player.exception.PlayerMappingException;
 
 /**
  * @author Grégory Van den Borre
@@ -45,13 +46,14 @@ public class PlayerStatusMapper implements ObjectMapper<PlayerStatus> {
     }
 
     @Override
-    public PlayerStatus from(String s) throws MappingException {
+    public PlayerStatus from(String s) throws PlayerMappingException {
+        ImplementationException.throwForNull(s);
         return PlayerStatus.valueOf(IntegerMapper.getInstance().from(s));
     }
 
     @Override
     public String to(PlayerStatus playerStatus) {
-        assert playerStatus != null;
+        ImplementationException.throwForNull(playerStatus);
         return String.valueOf(playerStatus.value);
     }
 }

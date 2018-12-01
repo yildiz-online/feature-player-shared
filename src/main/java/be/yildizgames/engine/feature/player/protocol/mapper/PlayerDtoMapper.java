@@ -24,10 +24,11 @@
 
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
-import be.yildizgames.common.mapping.MappingException;
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
 import be.yildizgames.common.mapping.model.PlayerIdMapper;
+import be.yildizgames.engine.feature.player.exception.PlayerMappingException;
 import be.yildizgames.engine.feature.player.protocol.PlayerDto;
 
 /**
@@ -46,19 +47,19 @@ public class PlayerDtoMapper implements ObjectMapper<PlayerDto> {
     }
 
     @Override
-    public PlayerDto from(String s) throws MappingException {
-        assert s != null;
+    public PlayerDto from(String s) {
+        ImplementationException.throwForNull(s);
         try {
             String[] v = s.split(Separator.VAR_SEPARATOR);
             return new PlayerDto(PlayerIdMapper.getInstance().from(v[0]), v[1], PlayerStatusMapper.getInstance().from(v[2]));
         } catch (IndexOutOfBoundsException e) {
-            throw new MappingException(e);
+            throw new PlayerMappingException(e);
         }
     }
 
     @Override
     public String to(PlayerDto dto) {
-        assert dto != null;
+        ImplementationException.throwForNull(dto);
         return PlayerIdMapper.getInstance().to(dto.player)
                 + Separator.VAR_SEPARATOR
                 + dto.login

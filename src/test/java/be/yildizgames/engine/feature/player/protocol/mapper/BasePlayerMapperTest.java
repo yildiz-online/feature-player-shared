@@ -24,9 +24,11 @@
 
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
-import be.yildizgames.common.mapping.MappingException;
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
+import be.yildizgames.common.mapping.exception.MappingException;
+import be.yildizgames.engine.feature.player.exception.PlayerMappingException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -34,43 +36,43 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public abstract class BaseMapperTest<T>{
+public abstract class BasePlayerMapperTest<T>{
 
     private final ObjectMapper<T> mapper;
     private final T baseObject;
 
-    protected BaseMapperTest(ObjectMapper<T> mapper, T baseObject) {
+    protected BasePlayerMapperTest(ObjectMapper<T> mapper, T baseObject) {
         this.mapper = mapper;
         this.baseObject = baseObject;
     }
 
     @Test
-    void happyFlow() throws MappingException {
+    void happyFlow() throws PlayerMappingException {
         String to = mapper.to(baseObject);
         T from = mapper.from(to);
         Assertions.assertEquals(baseObject, from);
     }
 
     @Test
-    void tooShort() throws MappingException {
+    void tooShort() throws PlayerMappingException {
         String to = mapper.to(baseObject);
         if (to.contains(Separator.OBJECTS_SEPARATOR)) {
-            Assertions.assertThrows(MappingException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.OBJECTS_SEPARATOR))));
+            Assertions.assertThrows(PlayerMappingException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.OBJECTS_SEPARATOR))));
         } else if (to.contains(Separator.VAR_SEPARATOR)) {
-            Assertions.assertThrows(MappingException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.VAR_SEPARATOR))));
+            Assertions.assertThrows(PlayerMappingException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.VAR_SEPARATOR))));
         } else {
             Assertions.assertThrows(MappingException.class, () -> mapper.from(""));
         }
     }
 
     @Test
-    void fromNull() throws MappingException {
-        Assertions.assertThrows(AssertionError.class, () -> mapper.from(null));
+    void fromNull() throws PlayerMappingException {
+        Assertions.assertThrows(ImplementationException.class, () -> mapper.from(null));
     }
 
     @Test
     void toNull() {
-        Assertions.assertThrows(AssertionError.class, () -> mapper.to(null));
+        Assertions.assertThrows(ImplementationException.class, () -> mapper.to(null));
     }
 
 }

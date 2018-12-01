@@ -29,7 +29,7 @@ import be.yildizgames.engine.feature.player.PlayerStatus;
 /**
  * @author Grégory Van den Borre
  */
-public class PlayerStatusMapperTest extends BaseMapperTest<PlayerStatus> {
+public class PlayerStatusMapperTest extends BasePlayerMapperTest<PlayerStatus> {
 
     public PlayerStatusMapperTest() {
         super(PlayerStatusMapper.getInstance(), PlayerStatus.valueOf(1));

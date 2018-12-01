@@ -21,19 +21,21 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
  *
  */
+package be.yildizgames.engine.feature.player.exception;
 
-package be.yildizgames.engine.feature.player.protocol.mapper;
+import be.yildizgames.common.exception.business.BusinessException;
 
-import be.yildizgames.common.model.PlayerId;
-import be.yildizgames.engine.feature.player.PlayerStatus;
-import be.yildizgames.engine.feature.player.protocol.PlayerDto;
+public class PlayerMappingException extends BusinessException {
 
-/**
- * @author Grégory Van den Borre
- */
-public class PlayerDtoMapperTest extends BasePlayerMapperTest<PlayerDto> {
+    public PlayerMappingException(String message) {
+        super(message);
+    }
 
-    public PlayerDtoMapperTest() {
-        super(PlayerDtoMapper.getInstance(), new PlayerDto(PlayerId.valueOf(3), "log", PlayerStatus.valueOf(2)));
+    public PlayerMappingException(Exception cause) {
+        super(cause);
+    }
+
+    public PlayerMappingException(String message, Exception cause) {
+        super(message, cause);
     }
 }
