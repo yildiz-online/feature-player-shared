@@ -47,14 +47,14 @@ public abstract class BasePlayerMapperTest<T>{
     }
 
     @Test
-    void happyFlow() throws PlayerMappingException {
+    public void happyFlow() throws PlayerMappingException {
         String to = mapper.to(baseObject);
         T from = mapper.from(to);
         Assertions.assertEquals(baseObject, from);
     }
 
     @Test
-    void tooShort() throws PlayerMappingException {
+    public void tooShort() throws PlayerMappingException {
         String to = mapper.to(baseObject);
         if (to.contains(Separator.OBJECTS_SEPARATOR)) {
             Assertions.assertThrows(PlayerMappingException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.OBJECTS_SEPARATOR))));
@@ -66,12 +66,12 @@ public abstract class BasePlayerMapperTest<T>{
     }
 
     @Test
-    void fromNull() throws PlayerMappingException {
+    public void fromNull() throws PlayerMappingException {
         Assertions.assertThrows(ImplementationException.class, () -> mapper.from(null));
     }
 
     @Test
-    void toNull() {
+   public void toNull() {
         Assertions.assertThrows(ImplementationException.class, () -> mapper.to(null));
     }
 

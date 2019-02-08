@@ -35,25 +35,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * @author Grégory Van den Borre
  */
-class PlayerManagerTest {
+public class PlayerManagerTest {
 
     @BeforeAll
-    static void init() {
+    public static void init() {
         PlayerManager.getInstance().createPlayer(PlayerId.valueOf(1), "player1");
     }
 
     @Nested
-    class FindFromId {
+    public class FindFromId {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             Player p = PlayerManager.getInstance().findFromId(PlayerId.valueOf(1));
             assertEquals(PlayerId.valueOf(1), p.id);
             assertEquals("player1", p.name);
         }
 
         @Test
-        void notFound() {
+        public void notFound() {
             Player p = PlayerManager.getInstance().findFromId(PlayerId.valueOf(2));
             assertEquals(Player.WORLD, p);
         }
@@ -61,17 +61,17 @@ class PlayerManagerTest {
     }
 
     @Nested
-    class GetFromId {
+    public class GetFromId {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             Player p = PlayerManager.getInstance().getFromId(PlayerId.valueOf(1));
             assertEquals(PlayerId.valueOf(1), p.id);
             assertEquals("player1", p.name);
         }
 
         @Test
-        void notFound() {
+        public void notFound() {
             assertThrows(PlayerManager.PlayerNotFoundException.class,
                     () -> PlayerManager.getInstance().getFromId(PlayerId.valueOf(2)));
         }
@@ -79,17 +79,17 @@ class PlayerManagerTest {
     }
 
     @Nested
-    class GetFromName {
+    public class GetFromName {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             Player p = PlayerManager.getInstance().getFromName("player1");
             assertEquals(PlayerId.valueOf(1), p.id);
             assertEquals("player1", p.name);
         }
 
         @Test
-        void notFound() {
+        public void notFound() {
             assertThrows(PlayerManager.PlayerNotFoundException.class,
                     () -> PlayerManager.getInstance().getFromName("player2"));
         }

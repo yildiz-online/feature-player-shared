@@ -33,22 +33,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Grégory Van den Borre
  */
-final class PlayerStatusTest {
+public final class PlayerStatusTest {
 
     @Test
-    void testGetFromOrdinal1() {
+    public void testGetFromOrdinal1() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> PlayerStatus.valueOf(-1));
     }
 
 
     @Test
-    void testGetFromOrdinal2() {
+    public void testGetFromOrdinal2() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> PlayerStatus.valueOf(PlayerStatus.values().length + 2));
     }
 
 
     @Test
-    void testGetFromOrdinal3() {
+    public void testGetFromOrdinal3() {
         for (int i = 0; i < PlayerStatus.values().length; i++) {
             assertEquals(PlayerStatus.values()[i], PlayerStatus.valueOf(i));
         }

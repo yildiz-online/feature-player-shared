@@ -33,10 +33,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Grégory Van den Borre
  */
-final class PlayerTest {
+public final class PlayerTest {
 
     @Test
-    void testPlayer() {
+    public void testPlayer() {
         // FIXME exception when creating 2 identical players?
         Player p = new Player(PlayerId.valueOf(3), "aPlayer");
         assertEquals(p.id, PlayerId.valueOf(3));
@@ -46,20 +46,20 @@ final class PlayerTest {
     }
 
     @Test
-    void testGetId() {
+    public void testGetId() {
         Player p = new Player(PlayerId.valueOf(1257552), "aName");
         assertEquals(PlayerId.valueOf(1257552), p.id);
         Assertions.assertNotSame(PlayerId.valueOf(487415774), p.id);
     }
 
     @Test
-    void testGetName() {
+    public void testGetName() {
         Player p = new Player(PlayerId.valueOf(1257552), "aName");
         assertEquals("aName", p.name);
     }
 
     @Test
-    void testEqualsObject() {
+    public void testEqualsObject() {
         Player p2 = new Player(PlayerId.valueOf(4751), "odfhytuijh");
         Player p3 = new Player(PlayerId.valueOf(4751), "odfhytuijh");
         Player p = new Player(PlayerId.valueOf(1257552), "aName");
@@ -71,7 +71,7 @@ final class PlayerTest {
 
     /***/
     @Test
-    void testToString() {
+    public void testToString() {
         Player p = new Player(PlayerId.valueOf(1257552), "aName");
         assertEquals("aName", p.toString());
     }

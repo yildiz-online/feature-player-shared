@@ -33,26 +33,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Grégory Van den Borre
  */
-class PlayerToCreateTest {
+public class PlayerToCreateTest {
 
     @Nested
-    class Constructor {
+    public class Constructor {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             PlayerToCreate ptc = new PlayerToCreate("l");
             assertEquals("l", ptc.getLogin());
 
         }
 
         @Test
-        void withNullLogin() {
+        public void withNullLogin() {
             Assertions.assertThrows(PlayerCreationException.class, () -> new PlayerToCreate(null));
         }
 
 
         @Test
-        void withEmptyLogin() {
+        public void withEmptyLogin() {
             Assertions.assertThrows(PlayerCreationException.class, () -> new PlayerToCreate(""));
         }
     }
