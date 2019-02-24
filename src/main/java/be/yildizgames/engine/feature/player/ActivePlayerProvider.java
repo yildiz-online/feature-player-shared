@@ -36,44 +36,44 @@ public class ActivePlayerProvider {
     private PlayerId player3;
     private PlayerId player4;
 
-    public void registerPlayer1(PlayerId player) {
+    public final void registerPlayer1(PlayerId player) {
         this.player1 = player;
     }
 
-    public void registerPlayer2(PlayerId player) {
+    public final void registerPlayer2(PlayerId player) {
         this.player2 = player;
     }
 
-    public void registerPlayer3(PlayerId player) {
+    public final void registerPlayer3(PlayerId player) {
         this.player3 = player;
     }
 
-    public void registerPlayer4(PlayerId player) {
+    public final void registerPlayer4(PlayerId player) {
         this.player4 = player;
     }
 
-    public PlayerId getPlayer1() {
+    public final PlayerId getPlayer1() {
         if(player1 == null) {
             throw new IllegalArgumentException("Player 1 not registered.");
         }
         return this.player1;
     }
 
-    public PlayerId getPlayer2() {
+    public final PlayerId getPlayer2() {
         if(player2 == null) {
             throw new IllegalArgumentException("Player 2 not registered.");
         }
         return this.player2;
     }
 
-    public PlayerId getPlayer3() {
+    public final PlayerId getPlayer3() {
         if(player3 == null) {
             throw new IllegalArgumentException("Player 3 not registered.");
         }
         return this.player3;
     }
 
-    public PlayerId getPlayer4() {
+    public final PlayerId getPlayer4() {
         if(player3 == null) {
             throw new IllegalArgumentException("Player 4 not registered.");
         }
