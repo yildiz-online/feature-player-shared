@@ -46,7 +46,7 @@ public class PlayerStatusMapper implements ObjectMapper<PlayerStatus> {
     }
 
     @Override
-    public PlayerStatus from(String s) throws PlayerMappingException {
+    public PlayerStatus from(String s) {
         ImplementationException.throwForNull(s);
         return PlayerStatus.valueOf(IntegerMapper.getInstance().from(s));
     }
