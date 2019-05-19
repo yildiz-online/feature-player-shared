@@ -54,4 +54,5 @@ public final class PlayerStatusTest {
         }
         Assertions.assertNotSame(PlayerStatus.values()[0], PlayerStatus.valueOf(1));
     }
+
 }

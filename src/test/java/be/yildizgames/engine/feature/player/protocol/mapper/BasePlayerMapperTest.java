@@ -74,5 +74,4 @@ public abstract class BasePlayerMapperTest<T>{
    public void toNull() {
         Assertions.assertThrows(ImplementationException.class, () -> mapper.to(null));
     }
-
 }

@@ -55,7 +55,7 @@ public class PlayerDto {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -69,7 +69,7 @@ public class PlayerDto {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         int result = player.hashCode();
         result = 31 * result + login.hashCode();
         result = 31 * result + status.hashCode();

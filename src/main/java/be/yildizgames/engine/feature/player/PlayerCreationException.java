@@ -34,4 +34,5 @@ class PlayerCreationException extends BusinessException {
     PlayerCreationException(String message) {
         super(message);
     }
+
 }

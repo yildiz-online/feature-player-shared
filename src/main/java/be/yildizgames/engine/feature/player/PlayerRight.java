@@ -56,4 +56,5 @@ public enum PlayerRight {
     public int getOrdinal() {
         return ordinal;
     }
+
 }

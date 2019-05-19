@@ -284,6 +284,5 @@ public final class PlayerManager implements PlayerProvider {
         PlayerNotFoundException(final String message) {
             super(message);
         }
-
     }
 }

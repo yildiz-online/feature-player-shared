@@ -47,7 +47,7 @@ public class PlayerDtoMapper implements ObjectMapper<PlayerDto> {
     }
 
     @Override
-    public PlayerDto from(String s) {
+    public final PlayerDto from(String s) {
         ImplementationException.throwForNull(s);
         try {
             String[] v = s.split(Separator.VAR_SEPARATOR);
@@ -58,7 +58,7 @@ public class PlayerDtoMapper implements ObjectMapper<PlayerDto> {
     }
 
     @Override
-    public String to(PlayerDto dto) {
+    public final String to(PlayerDto dto) {
         ImplementationException.throwForNull(dto);
         return PlayerIdMapper.getInstance().to(dto.player)
                 + Separator.VAR_SEPARATOR

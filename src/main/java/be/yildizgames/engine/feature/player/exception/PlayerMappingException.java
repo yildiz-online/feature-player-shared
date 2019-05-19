@@ -25,6 +25,9 @@ package be.yildizgames.engine.feature.player.exception;
 
 import be.yildizgames.common.exception.business.BusinessException;
 
+/**
+ * @author Grégory Van den Borre
+ */
 public class PlayerMappingException extends BusinessException {
 
     public PlayerMappingException(String message) {

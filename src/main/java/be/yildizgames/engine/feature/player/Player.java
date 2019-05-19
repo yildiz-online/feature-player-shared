@@ -144,5 +144,4 @@ public final class Player {
     public boolean isSeeing(EntityId id) {
         return this.see.contains(id);
     }
-
 }

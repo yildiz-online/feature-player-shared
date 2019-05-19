@@ -40,8 +40,7 @@ public class PlayerToCreate {
         this.login = login;
     }
 
-    public String getLogin() {
+    public final String getLogin() {
         return this.login;
     }
-
 }

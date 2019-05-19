@@ -75,4 +75,5 @@ public final class PlayerTest {
         Player p = new Player(PlayerId.valueOf(1257552), "aName");
         assertEquals("aName", p.toString());
     }
+
 }
