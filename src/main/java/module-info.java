@@ -27,7 +27,6 @@ module be.yildizgames.feature.player.shared {
     requires be.yildizgames.common.model;
     requires be.yildizgames.common.mapping.model;
     requires be.yildizgames.common.mapping;
-    requires be.yildizgames.common.exception;
 
     exports be.yildizgames.engine.feature.player;
 }

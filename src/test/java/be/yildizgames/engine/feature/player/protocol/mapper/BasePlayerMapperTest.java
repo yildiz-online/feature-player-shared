@@ -25,7 +25,6 @@
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
 import be.yildizgames.common.exception.business.BusinessException;
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
 import be.yildizgames.engine.feature.player.exception.PlayerMappingException;
@@ -67,11 +66,11 @@ public abstract class BasePlayerMapperTest<T>{
 
     @Test
     public void fromNull() throws PlayerMappingException {
-        Assertions.assertThrows(ImplementationException.class, () -> mapper.from(null));
+        Assertions.assertThrows(NullPointerException.class, () -> mapper.from(null));
     }
 
     @Test
    public void toNull() {
-        Assertions.assertThrows(ImplementationException.class, () -> mapper.to(null));
+        Assertions.assertThrows(NullPointerException.class, () -> mapper.to(null));
     }
 }

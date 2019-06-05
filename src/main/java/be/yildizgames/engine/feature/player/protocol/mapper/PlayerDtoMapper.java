@@ -24,7 +24,6 @@
 
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
 import be.yildizgames.common.mapping.model.PlayerIdMapper;
@@ -48,7 +47,6 @@ public class PlayerDtoMapper implements ObjectMapper<PlayerDto> {
 
     @Override
     public final PlayerDto from(String s) {
-        ImplementationException.throwForNull(s);
         try {
             String[] v = s.split(Separator.VAR_SEPARATOR);
             return new PlayerDto(PlayerIdMapper.getInstance().from(v[0]), v[1], PlayerStatusMapper.getInstance().from(v[2]));
@@ -59,7 +57,6 @@ public class PlayerDtoMapper implements ObjectMapper<PlayerDto> {
 
     @Override
     public final String to(PlayerDto dto) {
-        ImplementationException.throwForNull(dto);
         return PlayerIdMapper.getInstance().to(dto.player)
                 + Separator.VAR_SEPARATOR
                 + dto.login

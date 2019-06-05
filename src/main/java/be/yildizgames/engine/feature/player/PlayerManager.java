@@ -24,7 +24,6 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildizgames.common.exception.business.BusinessException;
 import be.yildizgames.common.model.PlayerCreationListener;
 import be.yildizgames.common.model.PlayerId;
 
@@ -252,7 +251,7 @@ public final class PlayerManager implements PlayerProvider {
      *
      * @author Van den Borre Grégory
      */
-     static final class ExistingPlayerException extends BusinessException {
+     static final class ExistingPlayerException extends IllegalArgumentException {
 
         /***/
         private static final long serialVersionUID = 1L;
@@ -273,7 +272,7 @@ public final class PlayerManager implements PlayerProvider {
      *
      * @author Van den Borre Grégory
      */
-    static final class PlayerNotFoundException extends BusinessException {
+    static final class PlayerNotFoundException extends IllegalArgumentException {
 
 
         /**

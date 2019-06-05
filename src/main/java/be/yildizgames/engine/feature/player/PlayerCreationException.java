@@ -24,12 +24,10 @@
 
 package be.yildizgames.engine.feature.player;
 
-import be.yildizgames.common.exception.business.BusinessException;
-
 /**
  * @author Grégory Van den Borre
  */
-class PlayerCreationException extends BusinessException {
+class PlayerCreationException extends IllegalArgumentException {
 
     PlayerCreationException(String message) {
         super(message);
