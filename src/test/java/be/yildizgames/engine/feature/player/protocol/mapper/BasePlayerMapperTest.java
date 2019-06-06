@@ -24,7 +24,6 @@
 
 package be.yildizgames.engine.feature.player.protocol.mapper;
 
-import be.yildizgames.common.exception.business.BusinessException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
 import be.yildizgames.engine.feature.player.exception.PlayerMappingException;
@@ -60,7 +59,7 @@ public abstract class BasePlayerMapperTest<T>{
         } else if (to.contains(Separator.VAR_SEPARATOR)) {
             Assertions.assertThrows(PlayerMappingException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.VAR_SEPARATOR))));
         } else {
-            Assertions.assertThrows(BusinessException.class, () -> mapper.from(""));
+            Assertions.assertThrows(IllegalArgumentException.class, () -> mapper.from(""));
         }
     }
 
