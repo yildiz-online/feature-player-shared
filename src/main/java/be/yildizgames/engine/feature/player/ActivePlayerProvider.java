@@ -27,6 +27,8 @@ package be.yildizgames.engine.feature.player;
 import be.yildizgames.common.model.PlayerId;
 
 /**
+ * Provide the players currently registered in the local game.
+ * This provider is for local multiplayer games, for client-server based games, the server will be responsible to provide the players.
  * @author Grégory Van den Borre
  */
 public class ActivePlayerProvider {
